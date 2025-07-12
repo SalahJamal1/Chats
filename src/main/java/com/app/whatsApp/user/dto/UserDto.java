@@ -1,4 +1,4 @@
-package com.app.whatsApp.user;
+package com.app.whatsApp.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

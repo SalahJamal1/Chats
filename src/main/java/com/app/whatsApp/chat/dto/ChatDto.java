@@ -1,6 +1,6 @@
-package com.app.whatsApp.chat;
+package com.app.whatsApp.chat.dto;
 
-import com.app.whatsApp.user.UserDto;
+import com.app.whatsApp.user.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

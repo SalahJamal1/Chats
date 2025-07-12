@@ -1,6 +1,6 @@
 package com.app.whatsApp.chat;
 
-import com.app.whatsApp.user.UserDto;
+import com.app.whatsApp.user.dto.UserDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,7 +14,7 @@ public interface ChatRepository extends JpaRepository<Chat, Integer> {
             "ORDER BY c.createdAt")
     List<Chat> findBySenderAndReceiver(@Param("senderId") Integer senderId, @Param("receiverId") Integer receiverId);
 
-    @Query("Select DISTINCT new com.app.whatsApp.user.UserDto(" +
+    @Query("Select DISTINCT new com.app.whatsApp.user.dto.UserDto(" +
             " case when c.sender.id=:userId then c.receiver.id  else c.sender.id end as id, " +
             " case when c.sender.id=:userId then c.receiver.name  else c.sender.name end as name, " +
             " case when c.sender.id=:userId then c.receiver.phone  else c.sender.phone end as phone, " +

@@ -1,24 +1,51 @@
 package com.app.whatsApp.chat;
 
-import com.app.whatsApp.user.UserDto;
+import com.app.whatsApp.user.dto.UserDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ChatService {
-    Chat save(Chat entity);
+@Service
+@RequiredArgsConstructor
+public class ChatService {
+    private final ChatRepository repository;
+
+    
+    @Transactional
+    public Chat save(Chat entity) {
+        return repository.save(entity);
+    }
+
+    
+    public Optional<Chat> findById(Integer integer) {
+        return Optional.of(repository.findById(integer).orElseThrow(() -> new RuntimeException("we cannot found the doc " + integer)));
+    }
+
+    
+    @Transactional
+    public void deleteById(Integer integer) {
+        repository.findById(integer);
+    }
 
 
-    Optional<Chat> findById(Integer integer);
+    
+    public List<Chat> findAll() {
+        return repository.findAll();
+    }
 
+    
+    public List<Chat> findBySenderAndReceiver(
+            Integer senderId, Integer receiverId) {
+        return repository.findBySenderAndReceiver(senderId, receiverId);
+    }
 
-    void deleteById(Integer integer);
+    
+    public List<UserDto> findChatForUser(Integer userId) {
+        return repository.findChatForUser(userId);
+    }
 
-
-    List<Chat> findAll();
-
-    List<Chat> findBySenderAndReceiver(Integer senderId, Integer receiverId);
-
-    List<UserDto> findChatForUser(Integer userId);
 
 }

@@ -1,7 +1,7 @@
 package com.app.whatsApp.auth;
 
 import com.app.whatsApp.user.User;
-import com.app.whatsApp.user.UserDto;
+import com.app.whatsApp.user.dto.UserDto;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,6 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthLogin authLogin, HttpServletResponse response) {
         try {
-
 
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON)
                     .body(service.login(authLogin, response));

@@ -1,7 +1,8 @@
 package com.app.whatsApp.chat;
 
+import com.app.whatsApp.chat.dto.ChatDto;
 import com.app.whatsApp.user.User;
-import com.app.whatsApp.user.UserDto;
+import com.app.whatsApp.user.dto.UserDto;
 import com.app.whatsApp.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

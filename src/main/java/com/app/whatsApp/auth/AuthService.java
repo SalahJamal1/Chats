@@ -2,7 +2,7 @@ package com.app.whatsApp.auth;
 
 import com.app.whatsApp.config.JwtService;
 import com.app.whatsApp.user.User;
-import com.app.whatsApp.user.UserDto;
+import com.app.whatsApp.user.dto.UserDto;
 import com.app.whatsApp.user.UserRepository;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
